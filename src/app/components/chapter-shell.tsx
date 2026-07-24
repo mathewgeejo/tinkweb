@@ -59,7 +59,7 @@ export function ChapterShell({ children, current, lightNav = false }: ChapterShe
         <a onClick={closeMenu} href="/team">CORE TEAM <ArrowUpRight /></a>
         <a onClick={closeMenu} href="/volunteers">VOLUNTEERS <ArrowUpRight /></a>
         <a onClick={closeMenu} href="/past-events">PAST EVENTS <ArrowUpRight /></a>
-        <p>SCET TinkerHub<br />College of Engineering, Sahrdaya</p>
+        <p>SCET TinkerHub<br />College of Engineering, SAHRDAYA</p>
       </div>
       {children}
     </main>
