@@ -6,9 +6,10 @@ import { ArrowUpRight, Menu, X } from "lucide-react";
 type ChapterShellProps = {
   children: ReactNode;
   current: "TEAM" | "VOLUNTEERS" | "ARCHIVE";
+  lightNav?: boolean;
 };
 
-export function ChapterShell({ children, current }: ChapterShellProps) {
+export function ChapterShell({ children, current, lightNav = false }: ChapterShellProps) {
   const shell = useRef<HTMLDivElement>(null);
   const cursor = useRef<HTMLDivElement>(null);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -43,7 +44,7 @@ export function ChapterShell({ children, current }: ChapterShellProps) {
   const closeMenu = () => setMenuOpen(false);
 
   return (
-    <main ref={shell} className="chapter-shell">
+    <main ref={shell} className={lightNav ? "chapter-shell chapter-shell--light-nav" : "chapter-shell"}>
       <div className="grain" />
       <div ref={cursor} className="cursor-dot"><span>+</span></div>
       <nav className="chapter-nav">

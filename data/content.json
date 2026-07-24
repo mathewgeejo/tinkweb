@@ -1,0 +1,14 @@
+{
+  "contributors": [
+    { "id": "contributor-01", "name": "PAST VOLUNTEER 01", "role": "VOLUNTEER", "year": "2024", "note": "Showed up early. Stayed curious. Made the room better.", "photo": "", "color": "acid" },
+    { "id": "contributor-02", "name": "PAST HOST 01", "role": "HOST", "year": "2024", "note": "Held the space, passed the mic, and kept the ideas moving.", "photo": "", "color": "red" },
+    { "id": "contributor-03", "name": "PAST VOLUNTEER 02", "role": "VOLUNTEER + HOST", "year": "2025", "note": "Turned a small task into a reason for more people to stay.", "photo": "", "color": "paper" },
+    { "id": "contributor-04", "name": "PAST HOST 02", "role": "HOST", "year": "2025", "note": "Made every new face feel like they belonged in the room.", "photo": "", "color": "ink" }
+  ],
+  "events": [
+    { "id": "event-01", "date": "02.24", "title": "FIRST COMMIT", "type": "OPEN HOUSE", "color": "acid", "note": "A room full of first ideas, first conversations, and a very long whiteboard.", "photo": "" },
+    { "id": "event-02", "date": "03.24", "title": "FIGMA AFTER DARK", "type": "DESIGN JAM", "color": "paper", "note": "A fast, messy, late-night exercise in making interfaces feel like something.", "photo": "" },
+    { "id": "event-03", "date": "06.24", "title": "THE BUILD TABLE", "type": "HARDWARE LAB", "color": "red", "note": "Sensors, cardboard, wrong turns, and prototypes that did exactly enough.", "photo": "" },
+    { "id": "event-04", "date": "08.24", "title": "CODE IN PUBLIC", "type": "LEARNING CIRCLE", "color": "ink", "note": "An evening for asking the questions that usually stay stuck in browser tabs.", "photo": "" }
+  ]
+}

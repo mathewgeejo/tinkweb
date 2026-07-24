@@ -1,36 +1,21 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# TinkerHub SCET
 
-## Getting Started
+Motion-first chapter site built with Next.js and GSAP.
 
-First, run the development server:
+## Run locally
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open `http://localhost:3000`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Content admin
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-## Learn More
+Restart the dev server after creating or changing `.env.local`. The CMS can add, edit, remove, and attach images to past volunteers/hosts and past events. Content is stored in `data/content.json`; uploaded images are stored in `public/uploads`.
 
-To learn more about Next.js, take a look at the following resources:
+Sessions are signed and stored only in `HttpOnly`, `SameSite=Strict` cookies. Admin writes and uploads require an authenticated session, validate same-origin requests, and accept only JPG, PNG, WEBP, or GIF uploads up to 5 MB.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+For production, deploy to a host with persistent disk or replace the local JSON/filesystem store with a database and object storage. Set the two environment variables in your hosting provider and use HTTPS.
