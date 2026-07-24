@@ -1,14 +1,168 @@
 {
+  "coreTeam": [
+    {
+      "id": "lead-campus",
+      "name": "CAMPUS LEAD",
+      "role": "CAMPUS LEAD",
+      "initials": "CL",
+      "bio": "Keeps the signal loud and the whole thing moving.",
+      "tags": [
+        "VISION",
+        "COMMUNITY",
+        "MOMENTUM"
+      ],
+      "photo": "",
+      "color": "acid"
+    },
+    {
+      "id": "lead-learning",
+      "name": "LEARNING COORDINATOR",
+      "role": "LEARNING COORDINATOR",
+      "initials": "LC",
+      "bio": "Turns a curious room into a room that knows where to begin.",
+      "tags": [
+        "SESSIONS",
+        "SKILLS",
+        "PEER LEARNING"
+      ],
+      "photo": "/uploads/91dfad11-dfa9-4414-9242-b448bf493447.gif",
+      "color": "paper"
+    },
+    {
+      "id": "lead-wit",
+      "name": "WOMEN IN TECH LEAD",
+      "role": "WOMEN IN TECH LEAD",
+      "initials": "WT",
+      "bio": "Makes space, opens doors, and keeps the table bigger than before.",
+      "tags": [
+        "INCLUSION",
+        "MENTORSHIP",
+        "VOICE"
+      ],
+      "photo": "/uploads/e7648a5a-fcd2-46af-b823-4a1bcb0a5864.jpg",
+      "color": "red"
+    },
+    {
+      "id": "lead-outreach",
+      "name": "OUTREACH LEAD",
+      "role": "OUTREACH LEAD",
+      "initials": "OL",
+      "bio": "Connects our work to people, partners, and places beyond campus.",
+      "tags": [
+        "PARTNERSHIPS",
+        "STORIES",
+        "REACH"
+      ],
+      "photo": "",
+      "color": "ink"
+    }
+  ],
   "contributors": [
-    { "id": "contributor-01", "name": "PAST VOLUNTEER 01", "role": "VOLUNTEER", "year": "2024", "note": "Showed up early. Stayed curious. Made the room better.", "photo": "", "color": "acid" },
-    { "id": "contributor-02", "name": "PAST HOST 01", "role": "HOST", "year": "2024", "note": "Held the space, passed the mic, and kept the ideas moving.", "photo": "", "color": "red" },
-    { "id": "contributor-03", "name": "PAST VOLUNTEER 02", "role": "VOLUNTEER + HOST", "year": "2025", "note": "Turned a small task into a reason for more people to stay.", "photo": "", "color": "paper" },
-    { "id": "contributor-04", "name": "PAST HOST 02", "role": "HOST", "year": "2025", "note": "Made every new face feel like they belonged in the room.", "photo": "", "color": "ink" }
+    {
+      "id": "contributor-01",
+      "name": "PAST VOLUNTEER 01",
+      "role": "VOLUNTEER",
+      "year": "2024",
+      "note": "Showed up early. Stayed curious. Made the room better.",
+      "photo": "",
+      "color": "acid",
+      "eventIds": [
+        "event-01",
+        "event-03"
+      ]
+    },
+    {
+      "id": "contributor-02",
+      "name": "PAST HOST 01",
+      "role": "HOST",
+      "year": "2024",
+      "note": "Held the space, passed the mic, and kept the ideas moving.",
+      "photo": "",
+      "color": "red",
+      "eventIds": [
+        "event-02",
+        "event-01"
+      ]
+    },
+    {
+      "id": "contributor-03",
+      "name": "PAST VOLUNTEER 02",
+      "role": "VOLUNTEER + HOST",
+      "year": "2025",
+      "note": "Turned a small task into a reason for more people to stay.",
+      "photo": "",
+      "color": "paper",
+      "eventIds": [
+        "event-03",
+        "event-04"
+      ]
+    },
+    {
+      "id": "contributor-04",
+      "name": "PAST HOST 02",
+      "role": "HOST",
+      "year": "2025",
+      "note": "Made every new face feel like they belonged in the room.",
+      "photo": "",
+      "color": "ink",
+      "eventIds": [
+        "event-02",
+        "event-04"
+      ]
+    }
   ],
   "events": [
-    { "id": "event-01", "date": "02.24", "title": "FIRST COMMIT", "type": "OPEN HOUSE", "color": "acid", "note": "A room full of first ideas, first conversations, and a very long whiteboard.", "photo": "" },
-    { "id": "event-02", "date": "03.24", "title": "FIGMA AFTER DARK", "type": "DESIGN JAM", "color": "paper", "note": "A fast, messy, late-night exercise in making interfaces feel like something.", "photo": "" },
-    { "id": "event-03", "date": "06.24", "title": "THE BUILD TABLE", "type": "HARDWARE LAB", "color": "red", "note": "Sensors, cardboard, wrong turns, and prototypes that did exactly enough.", "photo": "" },
-    { "id": "event-04", "date": "08.24", "title": "CODE IN PUBLIC", "type": "LEARNING CIRCLE", "color": "ink", "note": "An evening for asking the questions that usually stay stuck in browser tabs.", "photo": "" }
+    {
+      "id": "event-01",
+      "date": "02.24",
+      "title": "FIRST COMMIT",
+      "type": "OPEN HOUSE",
+      "color": "acid",
+      "note": "A room full of first ideas, first conversations, and a very long whiteboard.",
+      "photo": "",
+      "contributorIds": [
+        "contributor-01",
+        "contributor-02"
+      ]
+    },
+    {
+      "id": "event-02",
+      "date": "03.24",
+      "title": "FIGMA AFTER DARK",
+      "type": "DESIGN JAM",
+      "color": "paper",
+      "note": "A fast, messy, late-night exercise in making interfaces feel like something.",
+      "photo": "",
+      "contributorIds": [
+        "contributor-02",
+        "contributor-04"
+      ]
+    },
+    {
+      "id": "event-03",
+      "date": "06.24",
+      "title": "THE BUILD TABLE",
+      "type": "HARDWARE LAB",
+      "color": "red",
+      "note": "Sensors, cardboard, wrong turns, and prototypes that did exactly enough.",
+      "photo": "",
+      "contributorIds": [
+        "contributor-01",
+        "contributor-03"
+      ]
+    },
+    {
+      "id": "event-04",
+      "date": "08.24",
+      "title": "CODE IN PUBLIC",
+      "type": "LEARNING CIRCLE",
+      "color": "ink",
+      "note": "An evening for asking the questions that usually stay stuck in browser tabs.",
+      "photo": "",
+      "contributorIds": [
+        "contributor-03",
+        "contributor-04"
+      ]
+    }
   ]
 }

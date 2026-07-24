@@ -1,16 +1,20 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { ArrowDownRight, ArrowUpRight, Plus } from "lucide-react";
 import { ChapterShell } from "@/app/components/chapter-shell";
+import { type CoreMember, type SiteContent } from "@/lib/content-types";
 
-const team = [
-  { index: "01", role: "CAMPUS LEAD", initials: "CL", color: "acid", line: "Keeps the signal loud and the whole thing moving.", tags: ["VISION", "COMMUNITY", "MOMENTUM"] },
-  { index: "02", role: "LEARNING COORDINATOR", initials: "LC", color: "paper", line: "Turns a curious room into a room that knows where to begin.", tags: ["SESSIONS", "SKILLS", "PEER LEARNING"] },
-  { index: "03", role: "WOMEN IN TECH LEAD", initials: "WT", color: "red", line: "Makes space, opens doors, and keeps the table bigger than before.", tags: ["INCLUSION", "MENTORSHIP", "VOICE"] },
-  { index: "04", role: "OUTREACH LEAD", initials: "OL", color: "ink", line: "Connects our work to people, partners, and places beyond campus.", tags: ["PARTNERSHIPS", "STORIES", "REACH"] },
+const fallbackTeam: CoreMember[] = [
+  { id: "one", name: "CAMPUS LEAD", role: "CAMPUS LEAD", initials: "CL", color: "acid", bio: "Keeps the signal loud and the whole thing moving.", tags: ["VISION", "COMMUNITY", "MOMENTUM"], photo: "" },
+  { id: "two", name: "LEARNING COORDINATOR", role: "LEARNING COORDINATOR", initials: "LC", color: "paper", bio: "Turns a curious room into a room that knows where to begin.", tags: ["SESSIONS", "SKILLS", "PEER LEARNING"], photo: "" },
+  { id: "three", name: "WOMEN IN TECH LEAD", role: "WOMEN IN TECH LEAD", initials: "WT", color: "red", bio: "Makes space, opens doors, and keeps the table bigger than before.", tags: ["INCLUSION", "MENTORSHIP", "VOICE"], photo: "" },
+  { id: "four", name: "OUTREACH LEAD", role: "OUTREACH LEAD", initials: "OL", color: "ink", bio: "Connects our work to people, partners, and places beyond campus.", tags: ["PARTNERSHIPS", "STORIES", "REACH"], photo: "" },
 ];
 
 export default function TeamPage() {
+  const [team, setTeam] = useState(fallbackTeam);
+  useEffect(() => { fetch("/api/content").then((response) => response.json()).then((content: SiteContent) => setTeam(content.coreTeam)).catch(() => undefined); }, []);
   return (
     <ChapterShell current="TEAM">
       <section className="sub-hero team-hero">
@@ -29,11 +33,11 @@ export default function TeamPage() {
       </section>
 
       <section className="team-roster">
-        {team.map((member) => (
-          <article className={`team-card team-card--${member.color} scroll-reveal`} key={member.role}>
-            <div className="team-card-top"><span>{member.index}</span><span>TH / SCET</span></div>
-            <div className="team-initials">{member.initials}</div>
-            <div className="team-card-bottom"><p>{member.role}</p><h2>{member.line}</h2><div className="team-tags">{member.tags.map((tag) => <span key={tag}>{tag}</span>)}</div></div>
+        {team.map((member, index) => (
+          <article className={`team-card team-card--${member.color} scroll-reveal`} key={member.id}>
+            <div className="team-card-top"><span>0{index + 1}</span><span>TH / SCET</span></div>
+            <div className="team-initials" style={member.photo ? { backgroundImage: `url(${member.photo})`, backgroundSize: "cover", backgroundPosition: "center", color: "transparent" } : undefined}>{member.initials}</div>
+            <div className="team-card-bottom"><p>{member.role}</p><h2>{member.bio}</h2><div className="team-tags">{member.tags.map((tag) => <span key={tag}>{tag}</span>)}</div></div>
             <div className="team-card-corner"><ArrowUpRight /></div>
           </article>
         ))}

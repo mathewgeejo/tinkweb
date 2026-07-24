@@ -6,6 +6,18 @@ export type Contributor = {
   note: string;
   photo: string;
   color: "acid" | "paper" | "red" | "ink";
+  eventIds: string[];
+};
+
+export type CoreMember = {
+  id: string;
+  name: string;
+  role: string;
+  initials: string;
+  bio: string;
+  tags: string[];
+  photo: string;
+  color: "acid" | "paper" | "red" | "ink";
 };
 
 export type ArchivedEvent = {
@@ -16,9 +28,11 @@ export type ArchivedEvent = {
   color: "acid" | "paper" | "red" | "ink";
   note: string;
   photo: string;
+  contributorIds: string[];
 };
 
 export type SiteContent = {
+  coreTeam: CoreMember[];
   contributors: Contributor[];
   events: ArchivedEvent[];
 };

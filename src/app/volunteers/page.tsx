@@ -3,20 +3,21 @@
 import { useEffect, useState } from "react";
 import { ArrowDownRight, ArrowUpRight, X } from "lucide-react";
 import { ChapterShell } from "@/app/components/chapter-shell";
-import { type Contributor, type SiteContent } from "@/lib/content-types";
+import { type ArchivedEvent, type Contributor, type SiteContent } from "@/lib/content-types";
 
 const fallbackContributors: Contributor[] = [
-  { id: "one", name: "PAST VOLUNTEER 01", role: "VOLUNTEER", year: "2024", note: "Showed up early. Stayed curious. Made the room better.", photo: "", color: "acid" },
-  { id: "two", name: "PAST HOST 01", role: "HOST", year: "2024", note: "Held the space, passed the mic, and kept the ideas moving.", photo: "", color: "red" },
-  { id: "three", name: "PAST VOLUNTEER 02", role: "VOLUNTEER + HOST", year: "2025", note: "Turned a small task into a reason for more people to stay.", photo: "", color: "paper" },
-  { id: "four", name: "PAST HOST 02", role: "HOST", year: "2025", note: "Made every new face feel like they belonged in the room.", photo: "", color: "ink" },
+  { id: "one", name: "PAST VOLUNTEER 01", role: "VOLUNTEER", year: "2024", note: "Showed up early. Stayed curious. Made the room better.", photo: "", color: "acid", eventIds: [] },
+  { id: "two", name: "PAST HOST 01", role: "HOST", year: "2024", note: "Held the space, passed the mic, and kept the ideas moving.", photo: "", color: "red", eventIds: [] },
+  { id: "three", name: "PAST VOLUNTEER 02", role: "VOLUNTEER + HOST", year: "2025", note: "Turned a small task into a reason for more people to stay.", photo: "", color: "paper", eventIds: [] },
+  { id: "four", name: "PAST HOST 02", role: "HOST", year: "2025", note: "Made every new face feel like they belonged in the room.", photo: "", color: "ink", eventIds: [] },
 ];
 
 export default function VolunteersPage() {
   const [contributors, setContributors] = useState(fallbackContributors);
+  const [events, setEvents] = useState<ArchivedEvent[]>([]);
   const [selected, setSelected] = useState<Contributor | null>(null);
 
-  useEffect(() => { fetch("/api/content").then((response) => response.json()).then((content: SiteContent) => setContributors(content.contributors)).catch(() => undefined); }, []);
+  useEffect(() => { fetch("/api/content").then((response) => response.json()).then((content: SiteContent) => { setContributors(content.contributors); setEvents(content.events); }).catch(() => undefined); }, []);
 
   return (
     <ChapterShell current="VOLUNTEERS" lightNav>
@@ -40,7 +41,7 @@ export default function VolunteersPage() {
 
       <section className="people-note"><p className="section-tag scroll-reveal">( THE RECEIPT )</p><h2 className="scroll-reveal">A ROOM ONLY<br />BECOMES A<br /><i>COMMUNITY</i><br />WHEN PEOPLE<br />CARRY IT.</h2></section>
 
-      {selected && <div className="event-modal" role="dialog" aria-modal="true" aria-label={selected.name}><button className="event-modal-close" onClick={() => setSelected(null)} aria-label="Close profile"><X /></button><div className={`event-modal-card event-modal-card--${selected.color}`}><span>PEOPLE ARCHIVE / {selected.year}</span><small>{selected.role}</small><h2>{selected.name}</h2><p>{selected.note || "Part of the TinkerHub SCET story."}</p><div className="modal-mark">TH</div></div></div>}
+      {selected && <div className="event-modal" role="dialog" aria-modal="true" aria-label={selected.name}><button className="event-modal-close" onClick={() => setSelected(null)} aria-label="Close profile"><X /></button><div className={`event-modal-card event-modal-card--${selected.color}`}><span>PEOPLE ARCHIVE / {selected.year}</span><small>{selected.role}</small><h2>{selected.name}</h2><p>{selected.note || "Part of the TinkerHub SCET story."}</p><div className="linked-events"><b>SEEN AT</b>{events.filter((event) => selected.eventIds.includes(event.id)).map((event) => <span key={event.id}>{event.date} / {event.title}</span>)}{!events.some((event) => selected.eventIds.includes(event.id)) && <span>EVENT DETAILS COMING SOON</span>}</div><div className="modal-mark">TH</div></div></div>}
       <footer><a className="brand" href="/"><i>TH</i><span>SCET<br />CHAPTER</span></a><p>PEOPLE ARCHIVE<br />/ PAST HOSTS + VOLUNTEERS</p><div><a href="/team">CORE TEAM -&gt;</a><a href="/past-events">EVENT ARCHIVE -&gt;</a></div><span>C 2025 TINKERHUB SCET</span></footer>
     </ChapterShell>
   );
