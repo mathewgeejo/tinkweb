@@ -77,11 +77,11 @@ export default function Home() {
         <a onClick={() => setMenuOpen(false)} href="/volunteers">VOLUNTEERS <ArrowUpRight /></a>
         <a onClick={() => setMenuOpen(false)} href="/past-events">PAST EVENTS <ArrowUpRight /></a>
         <a onClick={() => setMenuOpen(false)} href="#join">JOIN THE MESS <ArrowUpRight /></a>
-        <p>SCET TinkerHub<br />College of Engineering, Karunagappally</p>
+        <p>SCET TinkerHub<br />College of Engineering, Sahrdaya</p>
       </div>
 
       <section id="top" className="hero">
-        <div className="hero-meta hero-reveal"><span>SCET / KARUNAGAPPALLY</span><span>EST. 2024</span></div>
+        <div className="hero-meta hero-reveal"><span>SCET / Sahrdaya</span><span>EST. 2024</span></div>
         <div className="hero-type" ref={heroWord}>
           <div className="clip"><span className="hero-reveal">TINKER</span></div>
           <div className="clip hero-second"><span className="hero-reveal">HUB</span><small className="hero-reveal">/ SCET</small></div>
