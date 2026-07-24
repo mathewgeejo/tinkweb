@@ -9,7 +9,6 @@
     "lint": "eslint"
   },
   "dependencies": {
-    "@next/swc-win32-x64-msvc": "16.2.11",
     "@swc/helpers": "0.5.15",
     "browserslist": "4.28.7",
     "caniuse-lite": "1.0.30001806",
