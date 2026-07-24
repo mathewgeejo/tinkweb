@@ -73,6 +73,9 @@ export default function Home() {
       <div className={`menu-sheet ${menuOpen ? "menu-sheet--open" : ""}`}>
         <a onClick={() => setMenuOpen(false)} href="#about">OUR SIGNAL <ArrowUpRight /></a>
         <a onClick={() => setMenuOpen(false)} href="#events">WHAT&apos;S ON <ArrowUpRight /></a>
+        <a onClick={() => setMenuOpen(false)} href="/team">CORE TEAM <ArrowUpRight /></a>
+        <a onClick={() => setMenuOpen(false)} href="/volunteers">VOLUNTEERS <ArrowUpRight /></a>
+        <a onClick={() => setMenuOpen(false)} href="/past-events">PAST EVENTS <ArrowUpRight /></a>
         <a onClick={() => setMenuOpen(false)} href="#join">JOIN THE MESS <ArrowUpRight /></a>
         <p>SCET TinkerHub<br />College of Engineering, Karunagappally</p>
       </div>
